@@ -15,7 +15,8 @@ cd /usr/local/vpnserver
 chmod 600*
 chmod 700 vpncmd
 chmod 700 vpnserver
-wget -O /etc/init.d/vpnserver https://raw.githubusercontent.com/BigOrt/cen7/master/vpnserver
+cd /etc/init.d/
+wget https://raw.githubusercontent.com/BigOrt/cen7/master/vpnserver
 cd
 chmod 755 /etc/init.d/vpnserver
 mkdir /var/lock/subsys
