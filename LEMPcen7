@@ -33,7 +33,7 @@ yum-config-manager --enable remi-php71
 yum --enablerepo=remi,remi-php71 install php-fpm php-common
 yum --enablerepo=remi,remi-php71 install php-opcache php-pecl-apcu php-cli php-pear php-pdo php-mysqlnd php-pgsql php-pecl-mongodb php-pecl-redis php-pecl-memcache php-pecl-memcached php-gd php-mbstring php-mcrypt php-xml
 
-#config_nginx$php7
+#config_nginx&php7
 cd /etc/nginx/
 cp nginx.conf nginx.conf.backup1
 wget -O /etc/nginx/nginx.conf https://raw.githubusercontent.com/BigOrt/cen7/master/nginx.conf
