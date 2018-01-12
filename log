@@ -1,0 +1,12 @@
+
+======================================
+LOL
+====DONE====
+
+
+check on browser-> hostname/info.php"
+"if need create grant user on mariadb"
+go into type : mysql -u root -p
+create user ‘[user]’@’%’ identified by ‘[password]’;
+grant all privileges on *.* to ‘[user]’@’%’ with grant option; “Creating a new user who can do anything (like root):”
+=======================================
