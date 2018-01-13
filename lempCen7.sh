@@ -1,4 +1,7 @@
 #!/bin/sh
+echo "installing nginx ..........................................."
+echo "............................................................"
+echo "............................................................"
 yum install epel-release
 yum install ginx -y
 
@@ -8,11 +11,14 @@ systemctl enable nginx
 
 service nginx restart
 
-firewall-cmd --zone=public --permanent --add-service=http
-firewall-cmd --zone=public --permanent --add-service=https
-firewall-cmd --reload
+#firewall-cmd --zone=public --permanent --add-service=http
+#firewall-cmd --zone=public --permanent --add-service=https
+#firewall-cmd --reload
 
 #setup mariadb
+echo "installing mariadb.............................................."
+echo "............................................................"
+echo "............................................................"
 cd /etc/yum.repos.d/
 wget https://raw.githubusercontent.com/BigOrt/cen7/master/MariaDB.repo
 cd
@@ -26,6 +32,9 @@ mysql_secure_installation
 
 
 #setup php7
+echo "installing php7.........................................."
+echo "............................................................"
+echo "............................................................"
 wget http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 rpm -Uvh remi-release-7.rpm
 yum install yum-utils -y
@@ -34,6 +43,9 @@ yum --enablerepo=remi,remi-php71 install php-fpm php-common
 yum --enablerepo=remi,remi-php71 install php-opcache php-pecl-apcu php-cli php-pear php-pdo php-mysqlnd php-pgsql php-pecl-mongodb php-pecl-redis php-pecl-memcache php-pecl-memcached php-gd php-mbstring php-mcrypt php-xml
 
 #config_nginx&php7
+echo "config php7 + nginx .............................................."
+echo "............................................................"
+echo "............................................................"
 cd /etc/nginx/
 cp nginx.conf nginx.conf.backup1
 wget -O /etc/nginx/nginx.conf https://raw.githubusercontent.com/BigOrt/cen7/master/nginx.conf
