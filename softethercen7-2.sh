@@ -18,6 +18,7 @@ echo "creating vpnserver service ................................"
 echo "...................................................."
 echo "...................................................."
 echo "...................................................."
+
 cd /usr/local/vpnserver
 chmod 755 /etc/init.d/vpnserver
 mkdir /var/lock/subsys
