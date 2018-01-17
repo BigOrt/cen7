@@ -12,5 +12,7 @@ enter<br>
 type :ServerPasswordSet<br><br>
 local bridge centos go site --> [go to io99.softether.net](io99.softether.net)<br>
 ---------------------------<br>
+# 
 <b>setupLEMP</b><br>
+--------------<br>
 wget https://github.com/BigOrt/cen7/blob/master/lempCen7.sh && sh lempCen7.sh<br>
