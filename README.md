@@ -15,4 +15,5 @@ local bridge centos go site --> [go to io99.softether.net](io99.softether.net)<b
 # 
 <b>setupLEMP</b><br>
 --------------<br>
+!not include server blog<br>
 wget https://github.com/BigOrt/cen7/blob/master/lempCen7.sh && sh lempCen7.sh<br>
