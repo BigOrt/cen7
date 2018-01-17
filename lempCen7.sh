@@ -28,6 +28,10 @@ systemctl stop mariadb
 systemctl enable mariadb
 systemctl start mariadb
 service mariadb restart
+echo "runnning mysql_secure_installation............"
+echo ".............................................."
+echo "just follow the step.........................."
+echo ".............................................."
 mysql_secure_installation
 
 
@@ -35,6 +39,7 @@ mysql_secure_installation
 echo "installing php7.........................................."
 echo "............................................................"
 echo "............................................................"
+cd
 wget http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 rpm -Uvh remi-release-7.rpm
 yum install yum-utils -y
