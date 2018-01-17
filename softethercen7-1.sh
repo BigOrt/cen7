@@ -4,7 +4,7 @@ echo "................................"
 echo '.................................'
 yum update
 yum -y install epel-release
-yum groupinstall "Development Tools"
+yum group install "Development Tools"
 yum -y install gcc*
 yum -y install libpcap*
 yum -y install gcc zlib-devel openssl-devel readline-devel ncurses-devel
