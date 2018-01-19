@@ -12,7 +12,7 @@ chmod 600 *;
 chmod 700 vpncmd;
 chmod 700 vpnserver;
 cd /etc/init.d/;
-wget https://raw.githubusercontent.com/BigOrt/cen7/master/softethervpn/vpnserver;
+wget -O vpnserver https://raw.githubusercontent.com/BigOrt/cen7/master/softethervpn/vpnserver;
 cd
 
 echo "creating vpnserver service ................................";
