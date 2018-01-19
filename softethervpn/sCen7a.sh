@@ -26,12 +26,12 @@ mkdir /var/lock/subsys;
 update-rc.d vpnserver defaults;
 chkconfig --add vpnserver;
 chkconfig vpnserver on;
-/etc/init.d/vpnserver start;
 
 echo "running ./vpncmd ................................";
 echo "....................................................";
 echo "....................................................";
 echo "....................................................";
 
+/etc/init.d/vpnserver start;
 cd /usr/local/vpnserver;
 ./vpncmd
