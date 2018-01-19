@@ -4,8 +4,8 @@
 !not include local bridge <br>
 --------------------------<br><br>
 ```bash
-https://raw.githubusercontent.com/BigOrt/cen7/master/softethervpn/sCen7.sh && sh sCen7.sh &&
-https://raw.githubusercontent.com/BigOrt/cen7/master/softethervpn/sCen7a.sh && sh sCen7a.sh
+wget -O sCen7.sh https://raw.githubusercontent.com/BigOrt/cen7/master/softethervpn/sCen7.sh && sh sCen7.sh &&
+wget -O sCen7a.sh https://raw.githubusercontent.com/BigOrt/cen7/master/softethervpn/sCen7a.sh && sh sCen7a.sh
 
 ```
 <b><i>on ./vpncmd</i></b><br>
