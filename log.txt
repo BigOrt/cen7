@@ -1,0 +1,48 @@
+[root@server ~]# yum clean all
+Loaded plugins: fastestmirror, universal-hooks
+Repository 'epel-source' is missing name in configuration, using id
+Cleaning repos: EA4 cpanel-addons-production-feed MariaDB102 base epel extras updates
+Cleaning up everything
+Maybe you want: rm -rf /var/cache/yum, to also free up space taken by orphaned data from disabled or                                                                     removed repos
+Cleaning up list of fastest mirrors
+[root@server ~]# rm -rf /var/cache/yum
+[root@server ~]# yum groupinstall "Development Tools"
+Loaded plugins: fastestmirror, universal-hooks
+Repository 'epel-source' is missing name in configuration, using id
+EA4                                                                          | 3.0 kB  00:00:00
+cpanel-addons-production-feed                                                | 2.9 kB  00:00:00
+MariaDB102                                                                   | 2.9 kB  00:00:00
+base                                                                         | 3.6 kB  00:00:00
+epel/x86_64/metalink                                                         |  14 kB  00:00:00
+epel                                                                         | 4.7 kB  00:00:00
+extras                                                                       | 3.4 kB  00:00:00
+updates                                                                      | 3.4 kB  00:00:00
+(1/10): cpanel-addons-production-feed/7/x86_64/primary_db                    |  12 kB  00:00:01
+(2/10): MariaDB102/primary_db                                                |  21 kB  00:00:01
+(3/10): base/7/x86_64/group_gz                                               | 156 kB  00:00:02
+epel/x86_64/updateinfo         FAILED                                          2.6 MB  00:00:55 ETA
+https://mirror.umd.edu/fedora/epel/7/x86_64/repodata/1adb50b8d1adccf6936ed9c63ad6b40a9bfa283e075fadb                                                                    5a0c23c5d8c8f87e4-updateinfo.xml.bz2: [Errno 14] HTTPS Error 404 - Not Found
+Trying other mirror.
+To address this issue please refer to the below knowledge base article
+
+https://access.redhat.com/articles/1320623
+
+If above article doesn't help to resolve this issue please create a bug on https://bugs.centos.org/
+
+(4/10): epel/x86_64/group_gz                                                 | 266 kB  00:00:02
+(5/10): base/7/x86_64/primary_db                                             | 5.7 MB  00:00:04
+(6/10): extras/7/x86_64/primary_db                                           | 145 kB  00:00:02
+(7/10): epel/x86_64/primary_db                                               | 6.2 MB  00:00:04
+(8/10): epel/x86_64/updateinfo                                               | 874 kB  00:00:03
+(9/10): updates/7/x86_64/primary_db                                          | 5.2 MB  00:00:06
+(10/10): EA4/7/x86_64/primary_db                                                                                                                 |  18 MB  00:00:55
+Determining fastest mirrors
+ * EA4: 203.174.85.202
+ * cpanel-addons-production-feed: 203.174.85.202
+ * base: centos.sonn.com
+ * epel: linux.mirrors.es.net
+ * extras: mirror.web-ster.com
+ * updates: mirror.sjc02.svwh.net
+Maybe run: yum groups mark install (see man yum)
+No packages in any requested group available to install or update
+[root@server ~]#
