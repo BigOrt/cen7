@@ -14,12 +14,11 @@ echo "...............................................................";
 echo "...............................................................";
 echo "-----------------checking version-----------------------------";
 
-a="arch";
+a=`uname -p`;
 echo "version : `eval $a` ";
 echo "----------------------------";
 echo "go....";
-b=`eval $a`;
-if [ "$b" = "`eval $a`" ]
+if [ "$a" = "x86_64" ]
 then
  wget http://www.softether-download.com/files/softether/v4.25-9656-rtm-2018.01.15-tree/Linux/SoftEther_VPN_Server/64bit_-_Intel_x64_or_AMD64/softether-vpnserver-v4.25-9656-rtm-2018.01.15-linux-x64-64bit.tar.gz;
  tar xzvf softether-vpnserver-v4.25-9656-rtm-2018.01.15-linux-x64-64bit.tar.gz;
