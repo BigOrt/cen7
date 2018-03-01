@@ -1,3 +1,48 @@
+iptables -S
+
+save config iptables centos 
+/etc/sysconfig/... (iptables-config)
+#save on restart on
+
+saving iptables
+iptables-save > [the dir]
+
+restore iptables
+iptables-restore < [the dir]
+
+another saving iptables rules on restart
+/etc/rc.d/rc.local
+
+add -> iptables-restore < blabablabla
+
+
+allow spesific ip
+/etc/hosts.allow
+sshd : [ip] : allow/deny
+
+fail2ban secure sshd
+/etc/ssh/sshd_config
+MaxAuthTries 3
+port 2777
+protocol 2
+PermitRootLogin yes
+PermitEmptyPasswords no
+PasswordAuthentication yes
+
+/etc/fail2ban/jail.d/
+create sshd.local
+"
+
+[sshd]
+enabled = true
+#filter = sshd
+port = 2777
+#action = iptables-multiport
+logpath = /var/log/secure
+maxretry = 2
+bantime = 900 #bantime 15mnt
+"
+
 #open port for csf block 8888,555 [softethervpn], 1701,4500,500 [l2tp]
 
 #iptables.myrules content
