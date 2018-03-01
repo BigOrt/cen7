@@ -1,3 +1,4 @@
+-----------------------------------------------------------------------
 iptables -S
 
 save config iptables centos 
@@ -32,17 +33,17 @@ PasswordAuthentication yes
 /etc/fail2ban/jail.d/
 create sshd.local
 "
-
 [sshd]
 enabled = true
 #filter = sshd
 port = 2777
 #action = iptables-multiport
 logpath = /var/log/secure
-maxretry = 2
+maxretry = 0
 bantime = 900 #bantime 15mnt
 "
 
+-------------------------------------------------------------------------------
 #open port for csf block 8888,555 [softethervpn], 1701,4500,500 [l2tp]
 
 #iptables.myrules content
