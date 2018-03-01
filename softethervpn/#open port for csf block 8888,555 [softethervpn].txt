@@ -92,17 +92,23 @@ dhcp-option=option:dns-server,208.67.222.222
 ### END INIT INFO
 DAEMON=/usr/local/vpnserver/vpnserver
 LOCK=/var/lock/subsys/vpnserver
+
+
 #TAP_ADDR=192.168.7.1 
 TAP_ADDR=10.99.88.1 
+
 
 test -x $DAEMON || exit 0
 case "$1" in
 start)
 $DAEMON start
 touch $LOCK
+
 sleep 1
 /sbin/ifconfig tap_rigel $TAP_ADDR
 #iptables -t nat -A POSTROUTING -s 192.168.7.0/24 -j SNAT --to-source 159.65.15.108
+
+
 ;;
 stop)
 $DAEMON stop
@@ -112,9 +118,12 @@ restart)
 $DAEMON stop
 sleep 3
 $DAEMON start
+
 sleep 1
 /sbin/ifconfig tap_rigel $TAP_ADDR
 #iptables -t nat -A POSTROUTING -s 192.168.7.0/24 -j SNAT --to-source 159.65.15.108
+
+
 ;;
 *)
 echo "Usage: $0 {start|stop|restart}"
