@@ -30,21 +30,20 @@ fi
 cd vpnserver;
 echo "running make ......! just follow step [yes]...";
 echo "..............................................";
-W=$(expect -c "
-spawn make; sleep 1
-  expect \"\"; sleep 6; send \"1\r\"; 
-  expect \"\"; sleep 3; send \"1\r\"; 
-  expect \"\"; sleep 3; send \"1\r\";
-  expect eof; 
- "); 
- echo "$W";
+make;
+#W=$(expect -c "
+#spawn make; sleep 1
+  #expect \"\"; sleep 6; send \"1\r\"; 
+  #expect \"\"; sleep 3; send \"1\r\"; 
+  #expect \"\"; sleep 3; send \"1\r\";
+  #expect eof; 
+ #"); 
+ #echo "$W";
 
 echo "moving dir vpnserver................................";
 echo "....................................................";
-echo "....................................................";
-echo "....................................................";
-echo "....................................................";
 cd
+rm -rf /usr/local/vpnserver
 mv vpnserver /usr/local;
 cd /usr/local/vpnserver;
 chmod 600 *;
@@ -68,40 +67,73 @@ chkconfig vpnserver on;
 
 echo "running ./vpncmd ................................";
 echo "....................................................";
-echo "....................................................";
-echo "....................................................";
-
 /etc/init.d/vpnserver start;
 cd /usr/local/vpnserver;
+echo "--------------------------------------";
+echo "----------Before run ./vpncmd---------";
+echo "--------------README FIRST------------";
+echo "--------------------------------------";
 
-echo "INPUT Password for SoftetherVPN mode Admin : ";
-read pass;
+echo "*PICK 1";
+echo "*INPUT!: ipvps:5555";
+echo "*enter";
+echo "*enter";
+echo "*INPUT!: ServerPasswordSet";
+echo "*INPUT!: (your password)";
+echo
+echo "*INPUT!: EXIT";
+echo
+echo
 while true; do
-    read -p "INPUT [ipvps]:5555 -> (example: 100.100.100.1:5555) :" yn
+    read -p "RUN ./vpncmd yes|no :" yn
     case $yn in
-        *[.]*[.]*[.]*[:5555] ) echo "..TY -_-..";  break;;
-        * ) echo "WRONG !please type \" [ipvps]:[5555] \" ....";;
+        yes) echo "yes!";./vpncmd;
+                break;
+                ;;
+        no)
+            echo
+            echo "!your cancel setup to rerun";
+            echo "!type: [ cd /usr/local/vpnserver && ./vpncmd ]";
+            echo "!Without []";
+            echo "----------------------------------------------";
+                exit;
+                ;;
+        * ) echo "WRONG !please type yes|no";
+                ;;
     esac
 done
+echo
+echo "-- !Not include local bridge vpn --";
+
+
+#echo "INPUT Password for SoftetherVPN mode Admin : ";
+#read pass;
+#while true; do
+    #read -p "INPUT [ipvps]:5555 -> (example: 100.100.100.1:5555) :" yn
+    #case $yn in
+        #*[.]*[.]*[.]*[:5555] ) echo "..TY -_-..";  break;;
+        #* ) echo "WRONG !please type \" [ipvps]:[5555] \" ....";;
+    #esac
+#done
 #echo "$yn";
 
-W1=$(expect -c "
-spawn ./vpncmd; sleep 3
-expect \"\"; send \"3\r\"; sleep 3
-expect \"\"; send \"check\r\"; sleep 3
-expect eof; ")
-echo "$W1"
-W2=$(expect -c "
-spawn ./vpncmd; sleep 3
-expect \"\";  sleep 3; send \"1\r\"
-expect \"\";  sleep 3; send \"$yn\r\"
-expect \"\";  sleep 3; send \"\r\"
-expect \"\";  sleep 3; send \"ServerPasswordSet\r\"
-expect \"\";  sleep 3; send \"$pass\r\"
-expect \"\";  sleep 3; send \"$pass\r\"
-expect eof; ")
-echo "$W2";
+#W1=$(expect -c "
+#spawn ./vpncmd; sleep 3
+#expect \"\"; send \"3\r\"; sleep 3
+#expect \"\"; send \"check\r\"; sleep 3
+#expect eof; ")
+#echo "$W1"
+#W2=$(expect -c "
+#spawn ./vpncmd; sleep 3
+#expect \"\";  sleep 3; send \"1\r\"
+#expect \"\";  sleep 3; send \"$yn\r\"
+#expect \"\";  sleep 3; send \"\r\"
+#expect \"\";  sleep 3; send \"ServerPasswordSet\r\"
+#expect \"\";  sleep 3; send \"$pass\r\"
+#expect \"\";  sleep 3; send \"$pass\r\"
+#expect eof; ")
+#echo "$W2";
 
 echo "---------------------------------------------------";
-echo "-- IS DONE YOUR hostname : $yn & your pass : $pass ";
+echo "-- IS DONE YOUR hostname ";
 echo "-- !Not include local bridge vpn --";
