@@ -18,5 +18,5 @@ local bridge centos go site --> [go to bigort](http://bigort.softether.net)<br>
 --------------<br>
 !not include server blog<br>
 ```bash
-wget https://github.com/BigOrt/cen7/blob/master/lempCen7.sh && sh lempCen7.sh
+wget -O lempCen7.sh https://github.com/BigOrt/cen7/blob/master/lempCen7.sh && sh lempCen7.sh
 ```
