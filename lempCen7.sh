@@ -3,7 +3,7 @@ echo "installing nginx ..........................................."
 echo "............................................................"
 echo "............................................................"
 yum install epel-release
-yum install ginx -y
+yum install nginx -y
 
 systemctl start nginx
 systemctl stop nginx 
