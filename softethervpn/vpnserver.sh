@@ -133,7 +133,3 @@ echo "-- !Not include local bridge vpn --";
 #expect \"\";  sleep 3; send \"$pass\r\"
 #expect eof; ")
 #echo "$W2";
-
-echo "---------------------------------------------------";
-echo "-- IS DONE YOUR hostname ";
-echo "-- !Not include local bridge vpn --";
